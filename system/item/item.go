@@ -5,7 +5,9 @@ package item
 
 import (
 	"fmt"
+	"log"
 	"net/http"
+	"os"
 	"regexp"
 	"strings"
 	"unicode"
@@ -255,6 +257,20 @@ func (i Item) BeforeDelete(res http.ResponseWriter, req *http.Request) error {
 // AfterDelete is a no-op to ensure structs which embed Item implement Hookable
 func (i Item) AfterDelete(res http.ResponseWriter, req *http.Request) error {
 	fmt.Println(req.FormValue("path"))
+	formPath := req.FormValue("path")
+	dir := "/go/src/github.com/nilslice/reviews/"
+	pathSlice := strings.Split(formPath, "/")[2:]
+	path := dir + strings.Join(pathSlice, "/") //源文件路径
+	fmt.Println(path)
+	err := os.Remove(path) //删除文件
+	if err != nil {
+		//如果删除失败则输出 file remove Error!
+		log.Println("file remove Error!", err)
+		return err
+	} else {
+		//如果删除成功则输出 file remove OK!
+		fmt.Print("file ", path, " remove OK!")
+	}
 	return nil
 }
 
