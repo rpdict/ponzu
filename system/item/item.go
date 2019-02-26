@@ -254,6 +254,7 @@ func (i Item) BeforeDelete(res http.ResponseWriter, req *http.Request) error {
 
 // AfterDelete is a no-op to ensure structs which embed Item implement Hookable
 func (i Item) AfterDelete(res http.ResponseWriter, req *http.Request) error {
+	fmt.Println(req.FormValue("path"))
 	return nil
 }
 
