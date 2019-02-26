@@ -4,7 +4,7 @@
 
 set -ex
 
-cd /go/src/github.com/ponzu-cms/ci/test-project
+cd /go/src/github.com/rpdict/ci/test-project
 
 ponzu run --dev-https &        
 

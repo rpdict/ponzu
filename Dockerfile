@@ -7,6 +7,8 @@ FROM golang:1.9
 ENV GO_SRC $GOPATH/src
 ENV PONZU_GITHUB github.com/rpdict/ponzu
 ENV PONZU_ROOT $GO_SRC/$PONZU_GITHUB
+ENV http_proxy http://192.168.1.12:8800
+ENV https_proxy https://192.168.1.12:8800
 
 # Consider updating package in the future. For instance ca-certificates etc.
 # RUN apt-get update -qq && apt-get install -y build-essential
