@@ -26,7 +26,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ponzu-cms/ponzu/system/db"
+	"github.com/rpdict/ponzu/system/db"
 )
 
 func publicKey(priv interface{}) interface{} {
